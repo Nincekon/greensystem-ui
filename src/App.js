@@ -1,33 +1,34 @@
 import logo from './logo.svg';
 import './App.css';
 
-const AppLink = () => {
-
-  const textVariable = "Hello Nincekon";
+const AppLink = ({ link, content }) => {
 
   return(
     <a
           className="App-link"
-          href="https://reactjs.org"
+          href={link}
           target="_blank"
           rel="noopener noreferrer"
         >
-          { textVariable } { 9 * 2 }+
+          { content }
         </a>
   );
 
 }
 
+const Logo = ({ svg }) => <img src={svg} className="App-logo" alt="logo" />;
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <Logo svg={logo}/>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        
-        <AppLink />
+        <AppLink link={"https://reactjs.org"} content={"Learn React 18+"} />
+        <AppLink link={"https://angular.io"} content={"Learn Angular"} />
+        <AppLink link={"https://vuejs.org"} content={"Learn Vue"} />
 
       </header>
     </div>
